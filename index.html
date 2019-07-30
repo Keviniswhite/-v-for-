@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+		
+		<div id="app">
+			<!-- v-for -->
+			<div v-for="(item,index) in array" >
+				<span @click="HandleName(index,$event)">{{item.name}}</span>
+				<div v-if="item.bool">测试</div>
+			</div>
+
+		</div>
+		<script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+
+	<script>
+		new Vue({
+			el:"#app",
+			data:{
+				
+				array:[{name:"kevin",bool:false},{name:"李刚",bool:false}]
+				
+			},
+			methods:{
+				HandleName(index,e){
+					this.array[index].bool =!this.array[index].bool;
+				}
+			},
+
+
+		}).$mount("#app");
+	</script>
+
+
+
+</body>
+</html>
